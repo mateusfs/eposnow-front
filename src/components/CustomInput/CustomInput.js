@@ -18,6 +18,7 @@ export default function CustomInput(props) {
   const classes = useStyles();
   const {
     formControlProps,
+    defaultValue,
     labelText,
     id,
     labelProps,
@@ -38,6 +39,7 @@ export default function CustomInput(props) {
   const marginTop = classNames({
     [classes.marginTop]: labelText === undefined
   });
+
   return (
     <FormControl
       {...formControlProps}
@@ -58,6 +60,7 @@ export default function CustomInput(props) {
           disabled: classes.disabled,
           underline: underlineClasses
         }}
+        defaultValue={ defaultValue }
         id={id}
         {...inputProps}
       />

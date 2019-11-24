@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -14,7 +13,7 @@ const useStyles = makeStyles(styles);
 
 const API_URL = "https://localhost:44358/api/";
 
-export default class GridMesas extends React.Component {
+export default class GridTables extends React.Component {
 
   constructor(props)
   {
@@ -26,7 +25,7 @@ export default class GridMesas extends React.Component {
   
   componentDidMount()
   {
-    return fetch(API_URL + 'mesas')
+    return fetch(API_URL + 'tables')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({items: responseJson});
@@ -43,7 +42,7 @@ export default class GridMesas extends React.Component {
   render()
   {
 
-    if(!this.state.items) {
+    if(!this.state.items || (this.state.items && this.state.items.length === 0)) {
       return (
         <div></div>
       );
@@ -51,21 +50,21 @@ export default class GridMesas extends React.Component {
 
 
     const listItems = this.state.items.map((item) =>
-      <Card style={{ width: "20rem", marginLeft: "20px" }}>
+      <Card style={{ width: "20rem", marginLeft: "20px" }} key={item.id}>
         <img
           className={useStyles.cardImgTop}
           data-src="holder.js/100px180/"
           alt="100%x180"
           style={{ height: "180px", width: "100%", display: "block" }}
-          src={require(`assets/img/mesa-${item.id}.jpg`)}
+          src={require(`assets/img/table-${item.id}.jpg`)}
           data-holder-rendered="true"
         />
-        <CardBody>
-          <h4>{item.nome}</h4>
+        <CardBody key={item.id}>
+          <h4>{item.name}</h4>
           <p>
-           Mostrar os detalhes sobre a <strong>{item.nome}</strong>
+          Show details about the <strong>{item.name}</strong>
           </p>
-          <Button color="primary" href={`/admin/mesa/${item.id}`}>Ver detalhes</Button>
+          <Button color="primary" style={{ float: "right" }} key={item.id} href={`/admin/table/${item.id}`}>See details</Button>
         </CardBody>
       </Card>
     );
@@ -77,6 +76,3 @@ export default class GridMesas extends React.Component {
   }
 }
 
-GridMesas.propTypes = {
-  children: PropTypes.node
-};
