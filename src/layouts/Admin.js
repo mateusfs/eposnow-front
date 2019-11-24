@@ -19,12 +19,14 @@ import logo from "assets/img/new_logo.svg";
 
 let ps;
 
+
 const switchRoutes = (
   <Switch>
     {routes.map((prop, key) => {
       if (prop.layout === "/admin") {
         return (
           <Route
+            exact
             path={prop.layout + prop.path}
             component={prop.component}
             key={key}
@@ -42,6 +44,7 @@ const useStyles = makeStyles(styles);
 export default function Admin({ ...rest }) {
   // styles
   const classes = useStyles();
+
   // ref to help us initialize PerfectScrollbar on windows devices
   const mainPanel = React.createRef();
   // states and functions
@@ -51,6 +54,7 @@ export default function Admin({ ...rest }) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
   const getRoute = () => {
     return window.location.pathname !== "/admin/maps";
   };
@@ -81,7 +85,7 @@ export default function Admin({ ...rest }) {
     <div className={classes.wrapper}>
       <Sidebar
         routes={routes}
-        logoText={"Creative Tim"}
+        logoText={"Creative Bravi"}
         logo={logo}
         image={image}
         handleDrawerToggle={handleDrawerToggle}
@@ -95,7 +99,7 @@ export default function Admin({ ...rest }) {
           handleDrawerToggle={handleDrawerToggle}
           {...rest}
         />
-        {/* On the /maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
+        {}
         {getRoute() ? (
           <div className={classes.content}>
             <div className={classes.container}>{switchRoutes}</div>

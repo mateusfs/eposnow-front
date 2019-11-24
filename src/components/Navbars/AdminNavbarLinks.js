@@ -105,31 +105,31 @@ export default function AdminNavbarLinks() {
                       onClick={handleCloseNotification}
                       className={classes.dropdownItem}
                     >
-                      Mesa 3 tem 1 produto novo
+                      Table 3 has 1 new product
                     </MenuItem>
                     <MenuItem
                       onClick={handleCloseNotification}
                       className={classes.dropdownItem}
                     >
-                      Mesa 5 tem 9 produtos
+                      Table 5 has 9 products
                     </MenuItem>
                     <MenuItem
                       onClick={handleCloseNotification}
                       className={classes.dropdownItem}
                     >
-                      Mesa 4 com prioridade
+                      Table 4 with priority
                     </MenuItem>
                     <MenuItem
                       onClick={handleCloseNotification}
                       className={classes.dropdownItem}
                     >
-                      Outra notificação
+                      Other notification
                     </MenuItem>
                     <MenuItem
                       onClick={handleCloseNotification}
                       className={classes.dropdownItem}
                     >
-                      Outra
+                      Other
                     </MenuItem>
                   </MenuList>
                 </ClickAwayListener>
