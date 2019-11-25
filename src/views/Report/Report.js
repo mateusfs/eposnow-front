@@ -15,6 +15,8 @@ import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js"
 
 const useStyles = makeStyles(styles);
 
+const API_URL = "https://localhost:44358/api/";
+
 export default function ReportPage() {
   const classes = useStyles();
   return (
@@ -32,7 +34,7 @@ export default function ReportPage() {
                 <Icon>book</Icon>
                 Report by category
               </div>
-              <Button color="warning"  href={`/admin/`} style={{ float: "right" }}>Generate</Button>
+              <Button color="warning"  href={API_URL + `report`} target="_blank" style={{ float: "right" }}>Generate</Button>
             </CardFooter>
           </Card>
         </GridItem>
@@ -49,7 +51,7 @@ export default function ReportPage() {
                 <Icon>bookmark_border</Icon>
                 Report by price
               </div>
-              <Button color="success"  href={`/admin/`} style={{ float: "right" }}>Generate</Button>
+              <Button color="success"  href={API_URL + `report`} target="_blank" style={{ float: "right" }}>Generate</Button>
             </CardFooter>
           </Card>
         </GridItem>
@@ -66,7 +68,7 @@ export default function ReportPage() {
                 <Icon>bookmark</Icon>
                 Report by products
               </div>
-              <Button color="danger"  href={`/admin/`} style={{ float: "right" }}>Generate</Button>
+              <Button color="danger"   href={API_URL + `report`} target="_blank" style={{ float: "right" }}>Generate</Button>
             </CardFooter>
           </Card>
         </GridItem>
@@ -83,7 +85,7 @@ export default function ReportPage() {
                 <Icon>bookmarks</Icon>
                 Report by commands
               </div>
-              <Button color="info"  href={`/admin/`} style={{ float: "right" }}>Generate</Button>
+              <Button color="info"   href={API_URL + `report`} target="_blank" style={{ float: "right" }}>Generate</Button>
             </CardFooter>
           </Card>
         </GridItem>
